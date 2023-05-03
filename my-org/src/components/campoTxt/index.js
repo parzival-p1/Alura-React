@@ -1,12 +1,12 @@
 import "./campoTxt.css"
 
 const CampoTxt = (props) => {
-    console.log("Datos: ", props); //Propiedades externas de los commponentes
+    console.log("Datos: ", props.titulo); //Propiedades externas de los commponentes
+    const placeHolderModified = `${props.placeholder}...`
     return <div className="campo-txt">
-        <label>Nombre</label>
-        <input placeholder="Ingresar nombre" />
+        <label>{ props.titulo }</label>
+        <input placeholder={ placeHolderModified } />
     </div>
-
 }
 
 export default CampoTxt
