@@ -1,5 +1,6 @@
 import "./formulario.css"
 import CampoTxt from "../campoTxt"
+import ListaOpciones from "../listaOpciones"
 
 const Form = () => {
     return <section className="form">
@@ -8,7 +9,7 @@ const Form = () => {
             <CampoTxt titulo="Nombre" placeholder="Ingresar nombre"/>
             <CampoTxt titulo="Puesto" placeholder="Ingresar puesto"/>
             <CampoTxt titulo="Foto" placeholder="Ingresar enlace de foto"/>
-            <CampoTxt titulo="Equipo" placeholder="Seleccionar equipo"/>
+            <ListaOpciones />
         </form>
     </section>
 }
