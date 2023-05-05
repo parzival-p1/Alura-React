@@ -1,12 +1,21 @@
+import { useState } from "react";
 import "./campoTxt.css"
 
 const CampoTxt = (props) => {
-    console.log("Datos: ", props); //Propiedades externas de los commponentes
     const placeHolderModified = `${props.placeholder}...`
+
+    const driveChange = (e) => {
+        props.actualizarValor(e.target.value);
+    }
     
     return <div className="campo-txt">
         <label>{ props.titulo }</label>
-        <input placeholder={ placeHolderModified } required={props.required}/>
+        <input 
+            placeholder={ placeHolderModified } 
+            required={props.required} 
+            value={props.valor} 
+            onChange={driveChange}
+        />
     </div>
 }
 
