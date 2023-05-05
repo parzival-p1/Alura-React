@@ -9,6 +9,7 @@ const Form = () => {
     const [nombre, actualizarNombre] = useState("");
     const [puesto, actualizarPuesto] = useState("");
     const [foto, actualizarFoto] = useState("");
+    const [team, actualizarTeam] = useState("");
 
     const manejarEnvio = (e) => {
         e.preventDefault() // no recarga la pag. completa solo funciona eel btn crear
@@ -16,7 +17,8 @@ const Form = () => {
         let datosAEnviar = {
             nombre,
             puesto,
-            foto
+            foto,
+            team
         }
         console.log(datosAEnviar);
     }
@@ -45,8 +47,10 @@ const Form = () => {
                 valor = { foto }
                 actualizarValor = { actualizarFoto }
             />
-            <ListaOpciones />
-            
+            <ListaOpciones
+                valor = { team }
+                actualizarTeam = { actualizarTeam }
+            />
             <Boton>
                 Crear
             </Boton>
