@@ -1,0 +1,21 @@
+.equipo {
+    width: 100%;
+    background-color: #D9F7E9;
+    padding: 34px;
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+.equipo h3 {
+    font-family: 'Prata', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #212121;
+    line-height: 43px;
+    align-items: center;
+
+    border-bottom: 4px  solid #57C278;
+    padding-bottom: 10px;
+    display: inline-block;
+}
