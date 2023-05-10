@@ -4,7 +4,7 @@ import CampoTxt from "../campoTxt"
 import ListaOpciones from "../listaOpciones"
 import Boton from "../boton"
 
-const Form = () => {
+const Form = (props) => {
 
     const [nombre, actualizarNombre] = useState("");
     const [puesto, actualizarPuesto] = useState("");
@@ -50,6 +50,7 @@ const Form = () => {
             <ListaOpciones
                 valor = { team }
                 actualizarTeam = { actualizarTeam }
+                teams = { props.teams }
             />
             <Boton>
                 Crear
