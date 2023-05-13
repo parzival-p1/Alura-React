@@ -7,21 +7,29 @@ const Equipo = (props) => {
     const { colaborators } = props;
 
     const obj = { backgroundColor: colorSec }
+    console.log(colaborators.length > 0);
+
     const titleStyle = { borderColor: colorPrim }
 
-    return <section className="equipo" style={obj}>
-        <h3 style={ titleStyle }>{ titulo }</h3>
-        <div className="colaborators">
-            {
-                colaborators.map( (colaborator, index) =>  
-                <Colaborator
-                    datos={colaborator}
-                    key={ index }
-                /> )
-            }
+    return <> {/** fragment **/}
+        { 
+            colaborators.length > 0 && 
+            <section className="equipo" style={obj}>
+                <h3 style={ titleStyle }>{ titulo }</h3>
+                <div className="colaborators">
+                    {
+                        colaborators.map( (colaborator, index) =>  
+                        <Colaborator
+                            datos={colaborator}
+                            key={ index }
+                        /> )
+                    }
 
-        </div>
-    </section>
+                </div>
+            </section>
+        } 
+    </>
+    
 }
 
 export default Equipo

@@ -79,10 +79,11 @@ function App() {
       <MiOrg cambiarMostrar = { cambiarMostrar } />
 
       {
-        teams.map((equipo) => <Equipo  // al trabajar con map siempre utilizar key
-          datos={ equipo } 
-          key={equipo.titulo} 
-          colaborators={colaborators}
+        teams.map((team) => <Equipo  // al trabajar con map siempre utilizar key
+          datos={ team } 
+          key={team.titulo} 
+          colaborators={colaborators.filter( colaborator => colaborator.team === team.titulo )}
+
         />  
         )
       }
