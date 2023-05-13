@@ -4,15 +4,21 @@ import Header from './components/header/header.js';
 import Form from './components/form/formulario.js';
 import MiOrg from './components/miOrg';
 import Equipo from './components/equipos';
+import Footer from './components/footer';
 
 function App() {
   const [mostrarForm, actualizarMostrar] = useState(false);
-  const [colaborators, updateColabs] = useState([]);
+  const [colaborators, updateColabs] = useState([{
+      "nombre": "Paco Hdez",
+      "puesto": "Software Developer",
+      "foto": "https://github.com/parzival-p1.png",
+      "team": "Front End"
+  }]);
 
    //^ Op Ternario --> condicion ? seMuestra : noSeMuestra
   //^ condicion && seMuestra
 
-  const cambiarMostrar = () => {
+  const cambiarMostrar = () => {[]
     actualizarMostrar(!mostrarForm) 
   }
 
@@ -87,6 +93,9 @@ function App() {
         />  
         )
       }
+
+      <Footer />
+
     </div>
   );
 }
