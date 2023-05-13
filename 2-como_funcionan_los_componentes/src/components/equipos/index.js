@@ -4,7 +4,7 @@ import Colaborator from "../colaborator"
 const Equipo = (props) => {
     //^ Destructuring
     const { colorPrim, colorSec, titulo } = props.datos
-    const { colaborators } = props;
+    const { colaborators, eliminarColab } = props;
 
     const obj = { backgroundColor: colorSec }
     console.log(colaborators.length > 0);
@@ -23,6 +23,7 @@ const Equipo = (props) => {
                             datos={colaborator}
                             key={ index }
                             colorPrim = { colorPrim }
+                            eliminarColab = { eliminarColab }
                         /> )
                     }
 

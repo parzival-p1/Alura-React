@@ -9,10 +9,40 @@ import Footer from './components/footer';
 function App() {
   const [mostrarForm, actualizarMostrar] = useState(false);
   const [colaborators, updateColabs] = useState([{
-      "nombre": "Paco Hdez",
-      "puesto": "Software Developer",
-      "foto": "https://github.com/parzival-p1.png",
-      "team": "Front End"
+    team: "Front End",
+    foto: "https://github.com/harlandlohora.png",
+    nombre: "Harland Lohora",
+    puesto: "Instructor",
+  },
+  {
+    team: "Front End",
+    foto: "https://github.com/parzival-p1.png",
+    nombre: "Paco Hdez",
+    puesto: "Software Developer",
+  },
+  {
+    team: "Programación",
+    foto: "https://github.com/genesysaluralatam.png",
+    nombre: "Genesys Rondón",
+    puesto: "Desarrolladora de software e instructora",
+  },
+  {
+    team: "UX y Diseño",
+    foto: "https://github.com/JeanmarieAluraLatam.png",
+    nombre: "Jeanmarie Quijada",
+    puesto: "Instructora en Alura Latam",
+  },
+  {
+    team: "Programación",
+    foto: "https://github.com/christianpva.png",
+    nombre: "Christian Velasco",
+    puesto: "Head de Alura e Instructor",
+  },
+  {
+    team: "Innovación y Gestión",
+    foto: "https://github.com/JoseDarioGonzalezCha.png",
+    nombre: "Jose Gonzalez",
+    puesto: "Dev FullStack",
   }]);
 
    //^ Op Ternario --> condicion ? seMuestra : noSeMuestra
@@ -28,7 +58,11 @@ function App() {
 
     //? Spread operator (hace una copia de los values prev guardados)
     updateColabs([...colaborators, colaborator]) //^recibe el nuevo valor y lo agrega
+  }
 
+  //^Eliminar colaborador
+  const eliminarColab = () => {
+    console.log("Eliminar colaborador");
   }
 
   //^ Lista de equipos
@@ -89,7 +123,7 @@ function App() {
           datos={ team } 
           key={team.titulo} 
           colaborators={colaborators.filter( colaborator => colaborator.team === team.titulo )}
-
+          eliminarColab = { eliminarColab }
         />  
         )
       }
