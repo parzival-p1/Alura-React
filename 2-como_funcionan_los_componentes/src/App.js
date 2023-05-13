@@ -7,12 +7,22 @@ import Equipo from './components/equipos';
 
 function App() {
   const [mostrarForm, actualizarMostrar] = useState(false);
+  const [colaborators, updateColabs] = useState([]);
 
    //^ Op Ternario --> condicion ? seMuestra : noSeMuestra
   //^ condicion && seMuestra
 
   const cambiarMostrar = () => {
     actualizarMostrar(!mostrarForm) 
+  }
+
+  //^ Registrar colaborador
+  const registerColab = (colaborator) => {
+    console.log("Nuevo colaborador", colaborator);
+
+    //? Spread operator (hace una copia de los values prev guardados)
+    updateColabs([...colaborators, colaborator]) //^recibe el nuevo valor y lo agrega
+
   }
 
   //^ Lista de equipos
@@ -57,14 +67,24 @@ function App() {
 
   return (
     <div>
-      <Header />
-      { mostrarForm === true ?  <Form teams={teams.map((team) => team.titulo)} /> : <> </> } {/* Fragments */} 
       {/*  { mostrarForm && <Form /> } 2a op de ternario */}  
+      <Header />
+      { 
+        mostrarForm && <Form 
+          teams={teams.map((team) => team.titulo)} 
+          registerColab = { registerColab }
+        />
+      }
+      
       <MiOrg cambiarMostrar = { cambiarMostrar } />
 
       {
-        teams.map( (equipo) =>  // al trabajar con map siempre utilizar key
-          <Equipo datos={ equipo } key={equipo.titulo} /> )
+        teams.map((equipo) => <Equipo  // al trabajar con map siempre utilizar key
+          datos={ equipo } 
+          key={equipo.titulo} 
+          colaborators={colaborators}
+        />  
+        )
       }
     </div>
   );

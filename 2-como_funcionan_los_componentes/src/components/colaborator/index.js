@@ -1,13 +1,16 @@
 import "./colaborator.css"
 
 const Colaborator = (props) => {
+    //^ destructuring
+    const { nombre, puesto, foto, team } = props.datos;
+    
     return <div className="colaborator">
         <div className="header">
-            <img src="https://github.com/parzival-p1.png" alt="Paco Hdez"/>
+            <img src={foto} alt={nombre} />
         </div>
         <div className="info">
-            <h4>Paco Hernández</h4>
-            <h5>Estudiante Alura - One</h5>
+            <h4>{ nombre }</h4>
+            <h5>{ puesto }</h5>
         </div>
     </div>
 }

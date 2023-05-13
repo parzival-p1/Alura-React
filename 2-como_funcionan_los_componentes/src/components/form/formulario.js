@@ -11,6 +11,9 @@ const Form = (props) => {
     const [foto, actualizarFoto] = useState("");
     const [team, actualizarTeam] = useState("");
 
+    //^ Destructuring code
+    const { registerColab } = props
+
     const manejarEnvio = (e) => {
         e.preventDefault() // no recarga la pag. completa solo funciona eel btn crear
         console.log("Manejar el envío");
@@ -20,7 +23,7 @@ const Form = (props) => {
             foto,
             team
         }
-        console.log(datosAEnviar);
+        registerColab(datosAEnviar);
     }
 
     return <section className="form">
@@ -30,7 +33,7 @@ const Form = (props) => {
                 titulo="Nombre" 
                 placeholder="Ingresar nombre" 
                 required 
-                valor={nombre} 
+                valor = { nombre } 
                 actualizarValor = { actualizarNombre }
             />
             <CampoTxt 
