@@ -22,6 +22,7 @@ const Equipo = (props) => {
                         <Colaborator
                             datos={colaborator}
                             key={ index }
+                            colorPrim = { colorPrim }
                         /> )
                     }
 
