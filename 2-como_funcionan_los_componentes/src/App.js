@@ -15,6 +15,7 @@ function App() {
     foto: "https://github.com/harlandlohora.png",
     nombre: "Harland Lohora",
     puesto: "Instructor",
+    fav: true
   },
   {
     id: uuid(),
@@ -22,6 +23,7 @@ function App() {
     foto: "https://github.com/parzival-p1.png",
     nombre: "Paco Hdez",
     puesto: "Software Developer",
+    fav: true
   },
   {
     id: uuid(),
@@ -29,6 +31,7 @@ function App() {
     foto: "https://github.com/genesysaluralatam.png",
     nombre: "Genesys Rondón",
     puesto: "Desarrolladora de software e instructora",
+    fav: false
   },
   {
     id: uuid(),
@@ -36,6 +39,7 @@ function App() {
     foto: "https://github.com/JeanmarieAluraLatam.png",
     nombre: "Jeanmarie Quijada",
     puesto: "Instructora en Alura Latam",
+    fav: false
   },
   {
     id: uuid(),
@@ -43,6 +47,7 @@ function App() {
     foto: "https://github.com/christianpva.png",
     nombre: "Christian Velasco",
     puesto: "Head de Alura e Instructor",
+    fav: true
   },
   {
     id: uuid(),
@@ -50,6 +55,7 @@ function App() {
     foto: "https://github.com/JoseDarioGonzalezCha.png",
     nombre: "Jose Gonzalez",
     puesto: "Dev FullStack",
+    fav: true
   }]);
 
   //^ Lista de equipos
@@ -140,6 +146,17 @@ function App() {
     updateTeams([...teams, { ...newTeam, id: uuid() }])
   }
 
+  const like = (id) => {
+    console.log("Like", id);
+    const updatedColabs = colaborators.map((colaborator) => {
+      if(colaborator.id === id) {
+        colaborator.fav = !colaborator.fav
+      }
+      return colaborator
+    })
+    updateColabs(updatedColabs);
+  }
+
   return (
     <div>
       {/*  { mostrarForm && <Form /> } 2a op de ternario */}  
@@ -161,6 +178,7 @@ function App() {
           colaborators={colaborators.filter( colaborator => colaborator.team === team.titulo )}
           eliminarColab = { eliminarColab }
           updateColor = { updateColor }
+          like = { like }
         />  
         )
       }

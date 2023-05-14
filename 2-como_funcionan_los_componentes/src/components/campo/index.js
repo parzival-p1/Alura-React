@@ -1,22 +1,26 @@
 import { useState } from "react";
-import "./campoTxt.css"
+import "./campo.css"
 
-const CampoTxt = (props) => {
-    const placeHolderModified = `${props.placeholder}...`
+const Campo = (props) => {
+    const placeHolderModified = `${props.placeholder}...`;
+
+    //^ Destructuring
+    const { type = "text" } = props
 
     const driveChange = (e) => {
         props.actualizarValor(e.target.value);
     }
     
-    return <div className="campo-txt">
+    return <div className={ `campo campo-${type}` }>
         <label>{ props.titulo }</label>
         <input 
             placeholder={ placeHolderModified } 
             required={props.required} 
             value={props.valor} 
             onChange={driveChange}
+            type={ type }
         />
     </div>
 }
 
-export default CampoTxt
+export default Campo

@@ -1,10 +1,13 @@
 import "./colaborator.css"
 import { IoIosCloseCircle } from "react-icons/io"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
 const Colaborator = (props) => {
     //^ destructuring
-    const { nombre, puesto, foto, team, id } = props.datos;
-    const { colorPrim, eliminarColab } = props;
+    const { nombre, puesto, foto, team, id, fav } = props.datos;
+    const { colorPrim, eliminarColab, like } = props;
+
+    // condition ? true : false
     
     return <div className="colaborator">
         <IoIosCloseCircle 
@@ -17,6 +20,10 @@ const Colaborator = (props) => {
         <div className="info">
             <h4>{ nombre }</h4>
             <h5>{ puesto }</h5>
+            { fav ? <AiFillHeart 
+                    color="red" 
+                    onClick={() => like(id)}/> 
+                    : <AiOutlineHeart onClick={() => like(id)}/> }          
         </div>
     </div>
 }
