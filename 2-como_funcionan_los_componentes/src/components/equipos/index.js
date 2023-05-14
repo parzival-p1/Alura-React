@@ -1,13 +1,13 @@
 import "./equipo.css"
 import Colaborator from "../colaborator"
+import hexToRgba from 'hex-to-rgba'
 
 const Equipo = (props) => {
     //^ Destructuring
     const { colorPrim, colorSec, titulo } = props.datos
-    const { colaborators, eliminarColab } = props;
+    const { colaborators, eliminarColab, updateColor } = props;
 
-    const obj = { backgroundColor: colorSec }
-    console.log(colaborators.length > 0);
+    const obj = { backgroundColor: hexToRgba(colorPrim, 0.6) }
 
     const titleStyle = { borderColor: colorPrim }
 
@@ -15,6 +15,15 @@ const Equipo = (props) => {
         { 
             colaborators.length > 0 && 
             <section className="equipo" style={obj}>
+                <input 
+                    type="color"
+                    className="input-color"
+                    value={ colorPrim }
+                    onChange={( event ) => {
+                        updateColor(event.target.value, titulo);
+                    }}
+                />
+
                 <h3 style={ titleStyle }>{ titulo }</h3>
                 <div className="colaborators">
                     {
@@ -22,7 +31,7 @@ const Equipo = (props) => {
                         <Colaborator
                             datos={colaborator}
                             key={ index }
-                            colorPrim = { colorPrim }
+                            colorPrim = { hexToRgba(colorPrim, 0.6) }
                             eliminarColab = { eliminarColab }
                         /> )
                     }

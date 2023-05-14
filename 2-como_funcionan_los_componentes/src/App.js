@@ -45,6 +45,45 @@ function App() {
     puesto: "Dev FullStack",
   }]);
 
+  //^ Lista de equipos
+  const [teams, updateTeams] = useState([
+    {
+      titulo: "Programación",
+      colorSec: "#D9F7E9",
+      colorPrim: "#57C278"
+    },
+    {
+      titulo:"Front End",
+      colorSec: "#E8F8FF",
+      colorPrim: "#82CFFA"
+    },
+    {
+      titulo: "Data Science",
+      colorSec: "#F0F8E2",
+      colorPrim: "#A6D157"
+    },
+    {
+      titulo: "DevOps",
+      colorSec: "#FDE7E8",
+      colorPrim: "#E06B69"
+    },
+    {
+      titulo: "UX y Diseño",
+      colorSec: "#FAE9F5",
+      colorPrim: "#DB6EBF"
+    },
+    {
+      titulo: "Móvil",
+      colorSec: "#FFF5D9",
+      colorPrim: "#FFBA05"
+    },
+    {
+      titulo: "Innovación y Gestión",
+      colorSec: "#FFEEDF",
+      colorPrim: "#FF8A29"
+    }
+  ])
+
    //^ Op Ternario --> condicion ? seMuestra : noSeMuestra
   //^ condicion && seMuestra
 
@@ -65,45 +104,19 @@ function App() {
     console.log("Eliminar colaborador");
   }
 
-  //^ Lista de equipos
-  const teams =  
-  [
-      {
-        titulo: "Programación",
-        colorSec: "#D9F7E9",
-        colorPrim: "#57C278 "
-      },
-      {
-        titulo:"Front End",
-        colorSec: "#E8F8FF",
-        colorPrim: "#82CFFA"
-      },
-      {
-        titulo: "Data Science",
-        colorSec: "#F0F8E2",
-        colorPrim: "#A6D157"
-      },
-      {
-        titulo: "DevOps",
-        colorSec: "#FDE7E8",
-        colorPrim: "#E06B69"
-      },
-      {
-        titulo: "UX y Diseño",
-        colorSec: "#FAE9F5",
-        colorPrim: "#DB6EBF"
-      },
-      {
-        titulo: "Móvil",
-        colorSec: "#FFF5D9",
-        colorPrim: "#FFBA05"
-      },
-      {
-        titulo: "Inovación y Gestión",
-        colorSec: "#FFEEDF",
-        colorPrim: "#FF8A29"
+  //^ Actualizar color de equipo
+  const updateColor = (color, titulo) => {
+    console.log("Actualizar: ", color, titulo);
+    const updatedTeams = teams.map((team) => {
+      if (team.titulo === titulo) {
+        team.colorPrim = color;
       }
-  ]
+
+      return team;
+    })
+
+    updateTeams(updatedTeams);
+  }
 
   return (
     <div>
@@ -124,6 +137,7 @@ function App() {
           key={team.titulo} 
           colaborators={colaborators.filter( colaborator => colaborator.team === team.titulo )}
           eliminarColab = { eliminarColab }
+          updateColor = { updateColor }
         />  
         )
       }
