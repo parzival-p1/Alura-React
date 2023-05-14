@@ -134,6 +134,12 @@ function App() {
     updateTeams(updatedTeams);
   }
 
+  //^Crear equipo Func
+  const crearTeam = (newTeam) => {
+    console.log(newTeam);
+    updateTeams([...teams, { ...newTeam, id: uuid() }])
+  }
+
   return (
     <div>
       {/*  { mostrarForm && <Form /> } 2a op de ternario */}  
@@ -142,6 +148,7 @@ function App() {
         mostrarForm && <Form 
           teams={teams.map((team) => team.titulo)} 
           registerColab = { registerColab }
+          crearTeam = { crearTeam }
         />
       }
       
@@ -154,7 +161,6 @@ function App() {
           colaborators={colaborators.filter( colaborator => colaborator.team === team.titulo )}
           eliminarColab = { eliminarColab }
           updateColor = { updateColor }
-
         />  
         )
       }

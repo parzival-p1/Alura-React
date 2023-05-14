@@ -11,8 +11,12 @@ const Form = (props) => {
     const [foto, actualizarFoto] = useState("");
     const [team, actualizarTeam] = useState("");
 
+    //^ Equipo
+    const [titulo, updateTitle] = useState("");
+    const [color, updateColor] = useState("");
+
     //^ Destructuring code
-    const { registerColab } = props
+    const { registerColab, crearTeam } = props;
 
     const manejarEnvio = (e) => {
         e.preventDefault() // no recarga la pag. completa solo funciona eel btn crear
@@ -25,6 +29,12 @@ const Form = (props) => {
         }
         registerColab(datosAEnviar);
     }
+
+    const manejarNewTeam = (e) => {
+        e.preventDefault(); // prev un comportamiento por default del DOM
+        crearTeam({ titulo, colorPrim: color });
+    }
+
 
     return <section className="form">
         <form onSubmit={ manejarEnvio }>
@@ -59,6 +69,24 @@ const Form = (props) => {
                 Crear
             </Boton>
         </form>
+        <form onSubmit={ manejarNewTeam }>
+            <h2>Rellena el formulario para crear el equipo</h2>
+            <CampoTxt 
+                titulo="Titulo" 
+                placeholder="Ingresar titulo" 
+                required 
+                valor = { titulo } 
+                actualizarValor = { updateTitle }
+            />
+            <CampoTxt 
+                titulo="Color" 
+                placeholder="Ingresar el color en Hexadecimal" 
+                required
+                valor = { color }
+                actualizarValor = { updateColor }
+            />
+            <Boton> Registrar equipo </Boton>
+        </form>    
     </section>
 }
 
