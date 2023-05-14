@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba'
 
 const Equipo = (props) => {
     //^ Destructuring
-    const { colorPrim, colorSec, titulo } = props.datos
+    const { colorPrim, colorSec, titulo, id } = props.datos
     const { colaborators, eliminarColab, updateColor } = props;
 
     const obj = { backgroundColor: hexToRgba(colorPrim, 0.6) }
@@ -20,7 +20,7 @@ const Equipo = (props) => {
                     className="input-color"
                     value={ colorPrim }
                     onChange={( event ) => {
-                        updateColor(event.target.value, titulo);
+                        updateColor(event.target.value, id);
                     }}
                 />
 
@@ -29,7 +29,7 @@ const Equipo = (props) => {
                     {
                         colaborators.map( (colaborator, index) =>  
                         <Colaborator
-                            datos={colaborator}
+                            datos={ colaborator }
                             key={ index }
                             colorPrim = { hexToRgba(colorPrim, 0.6) }
                             eliminarColab = { eliminarColab }
