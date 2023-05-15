@@ -2,6 +2,7 @@ import "./colaborator.css"
 import { IoIosCloseCircle } from "react-icons/io"
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
+
 const Colaborator = (props) => {
     //^ destructuring
     const { nombre, puesto, foto, team, id, fav } = props.datos;

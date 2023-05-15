@@ -12,6 +12,28 @@
     font-size: 20px;
 }
 
+.redes {
+    display: flex;
+    padding: 0px 15px;
+    justify-content: space-between;
+}
+
 .redes img{
+    padding: 0px 15px;
+}
+
+.linkedIn {
+    text-decoration: none;
+    color: white;
+    padding: 0px 15px;
+}
+
+.gitHub{
+    color: white;
+    padding: 0px 15px;
+}
+
+.gmail {
+    color: white;
     padding: 0px 15px;
 }

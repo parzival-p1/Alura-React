@@ -1,5 +1,6 @@
 .btn-crear {
-    display: block;
+    justify-content: space-around;
+    flex-wrap: wrap;
     width: 167px;
     height: 80px;
 
