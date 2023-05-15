@@ -4,7 +4,6 @@ const ListaOpciones = (props) => {
     // Metodo map -> arreglo.map( (team, index) => { return <option></option>  } )
 
     const manejarCambio = (e) => {
-        console.log("cambio", e.target.value);
         props.actualizarTeam(e.target.value)
     }
 

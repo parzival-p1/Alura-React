@@ -20,7 +20,6 @@ const Form = (props) => {
 
     const manejarEnvio = (e) => {
         e.preventDefault() // no recarga la pag. completa solo funciona eel btn crear
-        console.log("Manejar el envío");
         let datosAEnviar = {
             nombre,
             puesto,

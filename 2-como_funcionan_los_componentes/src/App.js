@@ -113,7 +113,6 @@ function App() {
 
   //^ Registrar colaborador
   const registerColab = (colaborator) => {
-    console.log("Nuevo colaborador", colaborator);
 
     //? Spread operator (hace una copia de los values prev guardados)
     updateColabs([...colaborators, colaborator]) //^recibe el nuevo valor y lo agrega
@@ -121,14 +120,12 @@ function App() {
 
   //^Eliminar colaborador
   const eliminarColab = (id) => {
-    console.log("Eliminar colaborador", id);
     const newColabs = colaborators.filter((colaborator) => colaborator.id != id); // returns new arr withouth modifying the og one
     updateColabs(newColabs);
   }
 
   //^ Actualizar color de equipo
   const updateColor = (color, id) => {
-    console.log("Actualizar: ", color, id);
     const updatedTeams = teams.map((team) => {
       if (team.id === id) {
         team.colorPrim = color;
@@ -142,12 +139,10 @@ function App() {
 
   //^Crear equipo Func
   const crearTeam = (newTeam) => {
-    console.log(newTeam);
     updateTeams([...teams, { ...newTeam, id: uuid() }])
   }
 
   const like = (id) => {
-    console.log("Like", id);
     const updatedColabs = colaborators.map((colaborator) => {
       if(colaborator.id === id) {
         colaborator.fav = !colaborator.fav
