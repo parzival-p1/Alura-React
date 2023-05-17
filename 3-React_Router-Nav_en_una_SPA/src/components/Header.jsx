@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
     return (
-        <header className="header congitainer">
+        <header className="header constainer">
             <div className="menu-hamburguer">
                 <span className="menu-hamburguer__icon"></span>
             </div>

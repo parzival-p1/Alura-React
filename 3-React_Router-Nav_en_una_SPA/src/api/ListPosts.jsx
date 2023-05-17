@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import "../assets/css/componentes/card.css"
-import { busccar } from "../api/api.js"
+import { buscar } from "../api/api.js"
 import { Link } from "react-router-dom"
 
 const ListPosts = ({ url }) => {
     const [posts, setPosts] = useState([])
 
     useEffect(() => {
-        busccar(url, setPosts);
+        buscar(url, setPosts)
     }, [url])
 
     return (
