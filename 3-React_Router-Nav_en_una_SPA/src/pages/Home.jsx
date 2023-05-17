@@ -1,4 +1,4 @@
-import ListPosts from "../api/ListPosts"
+import ListPosts from "../components/ListPosts"
 import ListCategories from "../components/ListCategories"
 
 const Home = () => {
